@@ -1,8 +1,10 @@
 package sort;
 
 import org.junit.jupiter.api.Test;
-import ru.edu.ilnur.algos.sort.QuickSort;
-import ru.edu.ilnur.algos.util.Metrics;
+
+import org.example.util.Metrics;
+import org.example.sort.QuickSort;
+
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 

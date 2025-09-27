@@ -1,8 +1,8 @@
 package sort;
 
 import org.junit.jupiter.api.Test;
-import ru.edu.ilnur.algos.sort.MergeSort;
-import ru.edu.ilnur.algos.util.Metrics;
+import org.example.sort.MergeSort;
+import org.example.util.Metrics;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 

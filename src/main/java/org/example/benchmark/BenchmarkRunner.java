@@ -3,11 +3,10 @@ package org.example.benchmark;
 import org.example.sort.MergeSort;
 import org.example.sort.QuickSort;
 import org.example.select.DeterministicSelect;
-import org.example.util.CSVWriter;
 import org.example.util.Metrics;
+import org.example.util.CSVWriter;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Random;
 
 public class BenchmarkRunner {
@@ -16,7 +15,7 @@ public class BenchmarkRunner {
 
     public static void main(String[] args) throws IOException {
         CSVWriter writer = new CSVWriter("benchmark_results.csv");
-        writer.write("Algorithm,Size,Comparisons,Swaps,MaxRecursionDepth,ExecutionTime(ns)", "");
+        writer.writeLine("Algorithm,Size,Comparisons,Swaps,MaxRecursionDepth,ExecutionTime(ns)");
 
         for (int size : SIZES) {
             int[] data = generateRandomArray(size, 0, size * 10);
@@ -26,6 +25,7 @@ public class BenchmarkRunner {
             benchmarkDeterministicSelect(data.clone(), writer, size);
         }
 
+        writer.close();
         System.out.println("✅ Benchmark complete! Results saved to benchmark_results.csv");
     }
 
@@ -37,7 +37,7 @@ public class BenchmarkRunner {
 
         String line = String.format("QuickSort,%d,%d,%d,%d,%d",
                 size, metrics.getComparisons(), metrics.getSwaps(), metrics.getMaxRecursionDepth(), execTime);
-        writer.write("", line);
+        writer.writeLine(line);
     }
 
     private static void benchmarkMergeSort(int[] data, CSVWriter writer, int size) throws IOException {
@@ -48,7 +48,7 @@ public class BenchmarkRunner {
 
         String line = String.format("MergeSort,%d,%d,%d,%d,%d",
                 size, metrics.getComparisons(), metrics.getSwaps(), metrics.getMaxRecursionDepth(), execTime);
-        writer.write("", line);
+        writer.writeLine(line);
     }
 
     private static void benchmarkDeterministicSelect(int[] data, CSVWriter writer, int size) throws IOException {
@@ -60,7 +60,7 @@ public class BenchmarkRunner {
 
         String line = String.format("DeterministicSelect,%d,%d,%d,%d,%d",
                 size, metrics.getComparisons(), metrics.getSwaps(), metrics.getMaxRecursionDepth(), metrics.getExecutionTime());
-        writer.write("", line);
+        writer.writeLine(line);
     }
 
     private static int[] generateRandomArray(int size, int min, int max) {
