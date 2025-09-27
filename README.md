@@ -95,3 +95,4 @@ Metrics confirm that MergeSort performs more memory moves, while QuickSort uses 
 - Implement **Deterministic Select** (Median-of-Medians) and measure depth.
 - Implement **Closest Pair of Points** (divide-and-conquer + strip check).
 - Add JMH benchmarks to compare constant factors between algorithms.
+    
