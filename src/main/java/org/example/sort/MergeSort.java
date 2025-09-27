@@ -42,7 +42,7 @@ public class MergeSort {
         while (i <= mid) arr[k++] = aux[i++];
         while (j <= right) arr[k++] = aux[j++];
     }
-
+//insertion sort ya dobavil
     private static void insertionSort(int[] arr, int left, int right, Metrics metrics) {
         for (int i = left + 1; i <= right; i++) {
             int key = arr[i];
