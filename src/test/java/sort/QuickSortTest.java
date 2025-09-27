@@ -25,7 +25,7 @@ public class QuickSortTest {
         QuickSort.sort(arr, metrics);
         assertArrayEquals(new int[]{1, 2, 3, 4, 5}, arr);
     }
-
+//reverse sort testik
     @Test
     public void testReverseSorted() {
         int[] arr = {9, 7, 5, 3, 1};
