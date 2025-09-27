@@ -57,10 +57,10 @@ public class DeterministicSelectTest {
 
         selector.select(arr, 3);
 
-        assertTrue(metrics.getComparisons() > 0, "Должны быть сравнения");
-        assertTrue(metrics.getSwaps() > 0, "Должны быть свапы");
-        assertTrue(metrics.getMaxRecursionDepth() > 0, "Должна учитываться глубина рекурсии");
-        assertTrue(metrics.getExecutionTime() > 0, "Время должно измеряться");
+        assertTrue(metrics.getComparisons() > 0, "There must be comparisons");
+        assertTrue(metrics.getSwaps() > 0, "There must be swaps");
+        assertTrue(metrics.getMaxRecursionDepth() > 0, "The depth of recursion must be taken into account");
+        assertTrue(metrics.getExecutionTime() > 0, "Time must be measured");
     }
 
     @Test
