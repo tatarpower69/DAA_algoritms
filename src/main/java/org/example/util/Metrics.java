@@ -1,18 +1,23 @@
-package ru.edu.ilnur.algos.util;
+package org.example.util;
+
 
 public class Metrics {
     private long comparisons;
     private long swaps;
     private long recursionDepth;
     private long maxRecursionDepth;
+    private long executionTime;
+
 
     public void incComparisons() {
         comparisons++;
     }
 
+
     public void incSwaps() {
         swaps++;
     }
+
 
     public void enterRecursion() {
         recursionDepth++;
@@ -22,7 +27,17 @@ public class Metrics {
     }
 
     public void exitRecursion() {
-        recursionDepth--;
+        if (recursionDepth > 0) recursionDepth--;
+    }
+
+
+    public void setExecutionTime(long nanos) {
+        executionTime = nanos;
+    }
+
+
+    public long getExecutionTime() {
+        return executionTime;
     }
 
     public long getComparisons() {
@@ -37,10 +52,22 @@ public class Metrics {
         return maxRecursionDepth;
     }
 
+
     public void reset() {
         comparisons = 0;
         swaps = 0;
         recursionDepth = 0;
         maxRecursionDepth = 0;
+        executionTime = 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Metrics{" +
+                "comparisons=" + comparisons +
+                ", swaps=" + swaps +
+                ", maxRecursionDepth=" + maxRecursionDepth +
+                ", executionTime=" + executionTime + " ns" +
+                '}';
     }
 }
